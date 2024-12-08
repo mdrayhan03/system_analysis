@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}?v=1.0" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Boxicons CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <<i class="fa-solid fa-registered icon"></i>
+        <div class="logo_name">RideShare</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <!-- <li>
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="Search..." />
+          <span class="tooltip">Search</span>
+        </li> -->
+        <li>
+          <a href="#">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-map'></i>
+            <span class="links_name">Map</span>
+          </a>
+          <span class="tooltip">Map</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-car'></i>
+            <span class="links_name">Ride</span>
+          </a>
+          <span class="tooltip">Ride</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa-regular fa-calendar"></i>
+            <span class="links_name">Reserve</span>
+          </a>
+          <span class="tooltip">Reserve</span>
+        </li>        
+        <li>
+          <a href="#">
+            <i class="bx bx-chat"></i>
+            <span class="links_name">Messages</span>
+          </a>
+          <span class="tooltip">Messages</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-history'></i>
+            <span class="links_name">History</span>
+          </a>
+          <span class="tooltip">History</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-bookmark-alt'></i>
+            <span class="links_name">Feedback</span>
+          </a>
+          <span class="tooltip">Feedback</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Profile</span>
+          </a>
+          <span class="tooltip">Profile</span>
+        </li>
+        <li class="profile">
+          <div class="profile-details">
+            <img src=" {% static "img/profile.jpg" %}" alt="profileImg" />
+            <div class="name_job">
+              <div class="name">Prem Shahi</div>
+              <div class="job">Web designer</div>
+            </div>
+          </div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+
+    <section class="home-section">
+      <header>
+        <div class="logo">
+          <i class="fa-solid fa-registered" style="font-size:20px;"></i>
+          <div class="logo_name">RideShare</div>
+        </div>
+        <div class="setting-part">
+          <i class="bx bx-user"></i>
+          <i class="bx bx-chat"></i>
+          <i class="bx bx-notification"></i>
+        </div>
+      </header>
+      <main>
+        {% block main_content %}{% endblock main_content %}
+      </main>
+    </section>
+    <script src=" {% static "js/script.js" %}"></script>
+    <script>
+      document.title = "{% block title %}BaseApp{% endblock title %}" ;
+    </script>
+  </body>
+</html>
