@@ -71,6 +71,7 @@
   line-height: 60px;
 }
 .sidebar .nav-list{
+  padding: 0px;
   margin-top: 20px;
   height: 100%;
 }
@@ -284,8 +285,45 @@
   background-color: white;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 600px) {
   .sidebar li .tooltip{
     display: none;
   }
+  .logo_name {
+    display: none;
+  }
+}
+
+.dashboardImg {
+  width: 50%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.cbutton {
+  outline: 0;
+  border: 0;
+  padding: 5px 0px;
+  width: auto;
+  color: cyan;
+  background-color: transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 10px cyan;
+}
+
+.cbutton:hover {
+  color: black;
+  background-color: cyan;
+}
+
+.cinput {
+  padding: 5px 10px;
+  outline: 0;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+}
+
+.ctext {
+  color: white;
 }

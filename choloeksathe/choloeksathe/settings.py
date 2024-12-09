@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 ]
 
 EXTERNAL_APPS = [
-    'baseapp.apps.BaseappConfig'
+    'baseapp.apps.BaseappConfig',
+    'rider.apps.RiderConfig'
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS

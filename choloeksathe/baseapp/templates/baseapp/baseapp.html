@@ -4,20 +4,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <!-- custom css -->
-    <link rel="stylesheet" href="{% static "css/style.css" %}?v=1.0" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link
       rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="{% static "css/style.css" %}?v=1.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="sidebar">
       <div class="logo-details">
         <<i class="fa-solid fa-registered icon"></i>
-        <div class="logo_name">RideShare</div>
+        <div class="logo_name">CholoEksathe</div>
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
@@ -27,21 +29,21 @@
           <span class="tooltip">Search</span>
         </li> -->
         <li>
-          <a href="#">
+          <a href="{% url "rider:dashboard" %}">
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Dashboard</span>
           </a>
           <span class="tooltip">Dashboard</span>
         </li>
         <li>
-          <a href="#">
+          <a href="{% url "rider:map" %}">
             <i class='bx bx-map'></i>
             <span class="links_name">Map</span>
           </a>
           <span class="tooltip">Map</span>
         </li>
         <li>
-          <a href="#">
+          <a href="{% url "rider:ride" %}">
             <i class='bx bx-car'></i>
             <span class="links_name">Ride</span>
           </a>
@@ -54,6 +56,13 @@
           </a>
           <span class="tooltip">Reserve</span>
         </li>        
+        <li>
+          <a href="#">
+            <i class='bx bx-trip'></i>
+            <span class="links_name">My Trip</span>
+          </a>
+          <span class="tooltip">My Trip</span>
+        </li>
         <li>
           <a href="#">
             <i class="bx bx-chat"></i>
@@ -90,7 +99,7 @@
               <div class="job">Web designer</div>
             </div>
           </div>
-          <i class="bx bx-log-out" id="log_out"></i>
+          <i class="bx bx-log-out" id="log_out" onclick="window.location.href='{% url "baseapp:login" %}'"></i>
         </li>
       </ul>
     </div>
@@ -99,7 +108,7 @@
       <header>
         <div class="logo">
           <i class="fa-solid fa-registered" style="font-size:20px;"></i>
-          <div class="logo_name">RideShare</div>
+          <div class="logo_name">CholoEksathe</div>
         </div>
         <div class="setting-part">
           <i class="bx bx-user"></i>
@@ -112,6 +121,8 @@
       </main>
     </section>
     <script src=" {% static "js/script.js" %}"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
       document.title = "{% block title %}BaseApp{% endblock title %}" ;
     </script>

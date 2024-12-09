@@ -1,0 +1,52 @@
+{% extends "baseapp/baseapp.html" %}
+{% load static %}
+{% block main_content %}
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map { width: 100%; height: 500px; }
+    </style>
+    <div class="card m-lg-3 m-sm-1 p-lg-3 p-md-3 bg-dark">
+        <h1 class="fs-4 ctext">Your Location</h1>
+        <p class="ctext">Driver near you</p>
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map (initially centered at some default location)
+        var map = L.map('map').setView([51.5074, -0.1278], 13); // Default: London coordinates
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Use the Geolocation API to get the user's current location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var lon = position.coords.longitude;
+
+                // Create a marker for the user's location
+                var userMarker = L.marker([lat, lon]).addTo(map);
+                userMarker.bindPopup("<b>You are here!</b>").openPopup();
+
+                // Center the map to the user's location
+                map.setView([lat, lon], 13);
+            }, function(error) {
+                alert("Geolocation failed: " + error.message);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+        let lst = [[91.5074, -0.1278, "Location 1"], [51.5074, 0.7878, "Location 2"], [11.5074, -0.5378, "Location 3"], [41.5074, 0.1278, "Location 4"]] ;
+        for (var i = 0 ; i < lst.length; i++) {
+            var pinCoordinates = [lst[i][0], lst[i][1]];
+            var marker = L.marker(pinCoordinates).addTo(map);
+            marker.bindPopup(`<b>${lst[i][2]}</b><br>This is ${lst[i][2]}!`);
+        }
+    </script>
+
+{% endblock main_content %}
+{% block title %}Map - Rider{% endblock title %}
