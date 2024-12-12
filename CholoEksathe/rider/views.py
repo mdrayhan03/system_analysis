@@ -29,3 +29,9 @@ def get_coordinates(place_name):
             return "No results found"
     else:
         return f"Error: {response.status_code}"
+    
+def message(request) :
+    return render(request, "rider/message.html")
+
+def profile(request) :
+    return render(request, "rider/profile.html")

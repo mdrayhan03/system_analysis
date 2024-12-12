@@ -48,6 +48,13 @@
             <span class="links_name">Ride</span>
           </a>
           <span class="tooltip">Ride</span>
+        </li>        
+        <li>
+          <a href="{% url "rider:ride" %}">
+            <i class='bx bx-group'></i>
+            <span class="links_name">Share Ride</span>
+          </a>
+          <span class="tooltip">Share Ride</span>
         </li>
         <li>
           <a href="#">
@@ -85,7 +92,7 @@
           <span class="tooltip">Feedback</span>
         </li>
         <li>
-          <a href="#">
+          <a href="{% url "rider:profile" %}">
             <i class="bx bx-user"></i>
             <span class="links_name">Profile</span>
           </a>
