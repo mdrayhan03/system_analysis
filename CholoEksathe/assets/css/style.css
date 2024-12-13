@@ -233,12 +233,13 @@
 .home-section{
   position: relative;
   background: #E4E9F7;
-  min-height: 100vh;
+  height: 100vh;
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
+  overflow: hidden;
 }
 .sidebar.open ~ .home-section{
   left: 250px;
@@ -283,6 +284,11 @@
 .home-section header .setting-part i:hover {
   color: #11101D;
   background-color: white;
+}
+
+main {
+  height: 100%;
+  overflow-y: scroll;
 }
 
 @media (max-width: 600px) {
@@ -339,4 +345,16 @@
 
 .cdiv {
   background-color: black;
+}
+
+.ca {
+  color : cyan;
+}
+
+.cmessage-profile-img {
+  width: 40px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }

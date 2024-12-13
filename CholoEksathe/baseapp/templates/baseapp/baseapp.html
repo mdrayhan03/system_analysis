@@ -71,11 +71,11 @@
           <span class="tooltip">My Trip</span>
         </li>
         <li>
-          <a href="#">
+          <a href="{% url "rider:community" %}">
             <i class="bx bx-chat"></i>
-            <span class="links_name">Messages</span>
+            <span class="links_name">Community</span>
           </a>
-          <span class="tooltip">Messages</span>
+          <span class="tooltip">Community</span>
         </li>
         <li>
           <a href="#">
@@ -118,8 +118,8 @@
           <div class="logo_name">CholoEksathe</div>
         </div>
         <div class="setting-part">
-          <i class="bx bx-user"></i>
-          <i class="bx bx-chat"></i>
+          <i class="bx bx-user" onclick="window.location.href='{% url "rider:profile" %}'"></i>
+          <i class="bx bx-chat" onclick="window.location.href='{% url "rider:community" %}'"></i>
           <i class="bx bx-notification"></i>
         </div>
       </header>

@@ -6,65 +6,67 @@
         <div class="row mb-2">
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">First Name</label><br>
-                <input class="cinput" type="text" readonly>
+                <input class="cinput" type="text">
             </div>
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Last Name</label><br>
-                <input class="cinput" type="text" readonly>
+                <input class="cinput" type="text">
             </div>
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Email</label><br>
-                <input class="cinput" type="email" readonly>
+                <input class="cinput" type="email">
             </div>
         </div>
         <div class="row mb-2">
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Phone No</label><br>
-                <input class="cinput" type="text" readonly>
+                <input class="cinput" type="text">
             </div>
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Gender</label><br>
                 <div class="container d-flex justify-content-around">
                     <label class="ctext">
-                        <input type="radio" name="gender" value="male" readonly>
+                        <input type="radio" name="gender" value="male">
                         Male
                     </label>
                     <label class="ctext">
-                        <input type="radio" name="gender" value="female" readonly>
+                        <input type="radio" name="gender" value="female">
                         Female
                     </label>
                 </div>
             </div>
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">NID No</label><br>
-                <input class="cinput" type="text" readonly>
+                <input class="cinput" type="text">
             </div>
         </div>
         <div class="row mb-2">
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Date of Birth</label><br>
-                <input class="cinput" type="date" readonly>
+                <input class="cinput" type="date">
             </div>
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Age</label><br>
-                <input class="cinput" type="text" readonly>
+                <input class="cinput" type="text">
             </div>
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Email</label><br>
-                <input class="cinput" type="text" readonly>
+                <input class="cinput" type="text">
             </div>
         </div>
         <div class="row mb-2">
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Profile Photo</label><br>
                 <img class="w-100" src="{% static "img/profile.jpg" %}" alt="">
+                <input class="cinput" type="file">
             </div>
             <div class=" col-lg-4 col-12">
                 <label class="ctext" for="">Password</label><br>
-                <input class="cinput" type="password" readonly><br><br>
-                <button  class="cbutton w-100" onclick="window.location.href='{% url "rider:changeProfile" %}'">Change Profile Info</button>
+                <input class="cinput" type="password"><br>
+                <a href="" class="ca">Forget Password?</a><br><br>
+                <button class="cbutton w-100">Confirm Changer</button>
             </div>
         </div>
     </div>
 {% endblock main_content %}
-{% block title %}Profile-Rider{% endblock title %}
+{% block title %}Change Profile-Rider{% endblock title %}

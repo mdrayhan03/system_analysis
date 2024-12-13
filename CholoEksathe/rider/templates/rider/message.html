@@ -1,6 +1,98 @@
 {% extends "baseapp/baseapp.html" %}
 {% load static %}
 {% block main_content %}
+    <style>
+        main {
+            overflow: hidden;
+        }
+        .content {
+            padding: 20px ;
+            height: 85% ;
+            overflow-y: scroll;
+        }
 
+        .message-input {
+            padding: 10px ;
+            width: 100%;
+            display: flex;
+            gap: 10px ;
+            justify-content : center ;
+            align-items : center ;
+            position: absolute ;
+            bottom: 0 ;
+            right: 0 ;
+        }
+
+        .message-input input {
+            padding: 5px 20px ;
+            border-radius: 20px ;
+        }
+
+        .message-input i {
+            padding: 10px ;
+            border-radius: 50% ;
+        }
+    </style>
+    <div class="content">
+    </div>
+
+    <div class="message-input cdiv">
+        <input class="cinput" type="text">
+        <i class="fa-regular fa-paper-plane cbutton"></i>
+    </div>
+    <script>
+        var container = document.getElementsByClassName("content")[0] ;
+        function myMessage(name, msg) {
+            var newDiv = document.createElement("div") ;
+            newDiv.style.display = "flex" ;
+            newDiv.style.flexDirection = "column" ;
+            newDiv.style.justifyContent = "start" ;
+            newDiv.style.alignItems = "end"
+            newDiv.style.float = "right" ;
+            newDiv.style.width = "80%" ;
+
+            var nameDiv = document.createElement("div") ;
+            nameDiv.innerHTML = `<h6>${name}</h6>` ;
+
+            var message = document.createElement("div") ;
+            message.classList.add("cdiv") ;
+            message.classList.add("p-2") ;
+            message.classList.add("ctext") ;
+            message.innerText = msg ;
+
+            newDiv.appendChild(nameDiv) ;
+            newDiv.appendChild(message) ;            
+            container.appendChild(newDiv) ;
+        }
+
+        function otherMessage(name, msg) {
+            var newDiv = document.createElement("div") ;
+            newDiv.style.display = "flex" ;
+            newDiv.style.flexDirection = "column" ;
+            newDiv.style.justifyContent = "start" ;
+            newDiv.style.alignItems = "start"
+            newDiv.style.width = "80%" ;
+
+            var nameDiv = document.createElement("div") ;
+            nameDiv.innerHTML = `<h6>${name}</h6>` ;
+
+            var message = document.createElement("div") ;
+            message.classList.add("cdiv") ;
+            message.classList.add("p-2") ;
+            message.classList.add("ctext") ;
+            message.innerText = msg ;
+
+            newDiv.appendChild(nameDiv) ;
+            newDiv.appendChild(message) ;            
+            container.appendChild(newDiv) ;
+        }
+
+        otherMessage("Other Name", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+        myMessage("My Name", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.") ;
+        otherMessage("Other Name", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+        myMessage("My Name", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.") ;
+        otherMessage("Other Name", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+        myMessage("My Name", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.") ;
+    </script>
 {% endblock main_content %}
 {% block title %}Message-Rider{% endblock title %}
