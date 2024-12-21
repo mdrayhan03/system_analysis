@@ -140,6 +140,18 @@
   background: #FFF;
   color: #11101d;
 }
+
+.sidebar li a.activated {
+  background: #FFF;
+  color: #11101D;
+}
+
+.sidebar li a.activated .links_name,
+.sidebar li a.activated i{
+  transition: all 0.5s ease;
+  color: #11101D;
+}
+
 .sidebar li a{
   display: flex;
   height: 100%;
@@ -258,10 +270,12 @@
   margin: 18px
 }
 .home-section header {
-  padding: 10px 20px;
+  height: 70px;
+  padding: 0 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: #11101D;
 }
 
@@ -287,8 +301,9 @@
 }
 
 main {
-  height: 100%;
+  height: calc(100% - 70px);
   overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
 @media (max-width: 600px) {
@@ -318,7 +333,7 @@ main {
 }
 
 .cbutton:hover {
-  color: black;
+  color: #11101D;
   background-color: cyan;
 }
 
@@ -327,7 +342,7 @@ main {
   padding: 5px 10px;
   outline: 0;
   border: 2px solid white;
-  background: transparent;
+  background: #11101D;
   color: white;
 }
 
@@ -344,7 +359,7 @@ main {
 }
 
 .cdiv {
-  background-color: black;
+  background-color: #11101D;
 }
 
 .ca {

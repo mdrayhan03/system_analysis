@@ -15,21 +15,50 @@
 <div class="card m-3 p-3 cdiv">
     <h1 class="fs-4 ctext">Request for Ride</h1>
         <div class="row">
-          <div class="col-lg-6 col-12">
+          <div class="col-lg-4 col-12">
             <p class="ctext">From</p>
             <input class="w-100 cinput" type="text" value="Independent University Bangladesh" placeholder="From">
           </div>
-          <div class="col-lg-6 col-12">
+          <div class="col-lg-4 col-12">
             <p class="ctext">To</p>
             <input class="w-100 cinput" type="text" value="Mirpur-2" placeholder="Destination">
+          </div>
+          <div class="col-lg-4 col-12">
+            <p class="ctext">Gender</p>
+            <select name="gender" class="w-100 cinput">
+                <option class="cinput" value="all" selected>All</option>
+                <option class="cinput" value="male">Male</option>
+                <option class="cinput" value="female">Female</option>
+            </select>
           </div>
     </div>
     <button class="mt-3 cbutton">Request Ride</button>
     </div>
 
     <div class="card m-3 p-3 cdiv">
-        <h2 class="fs-4 ctext">Calculated Fear : 450tk</h2>
+        <h2 class="fs-4 ctext">Calculated Fear : 250tk</h2>
     </div>
+
+    <div class="card m-3 p-3 cdiv">
+        <h2 class="fs-4 ctext">Available Riders</h2>
+    </div>
+
+    <div class="card m-3 p-3 cdiv">
+        <div class="row">
+            <div class="col-4 col-lg-1">
+                <img class="driverImg img-fluid img-thumbnail" src="{% static "img/profile.jpg" %}" alt="">
+            </div>
+            <div class="col">
+                <p class="ctext">MD. Salim Khondokar</p>
+                <p class="ctext">01952418611</p>
+            </div>
+            <div class="col">
+                <p class="ctext">6894201548</p>
+                <p class="ctext">Male</p>
+            </div>
+        </div>
+    </div>
+
     <div class="card m-3 p-3 cdiv">
         <h2 class="fs-4 ctext">Available Drivers</h2>
     </div>
@@ -68,4 +97,4 @@
 </script>
 
 {% endblock main_content %}
-{% block title %}Ride{% endblock title %}
+{% block title %}Share Ride{% endblock title %}

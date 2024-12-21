@@ -1,0 +1,43 @@
+{% extends "baseapp/baseapp.html" %}
+{% load static %}
+{% block main_content %}
+    <div class="card m-3 p-3 cdiv">
+        <div class="row">
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="From">Independent University Bangladesh</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="To">Mirpur-2</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Date">19/12/2024</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Time">11:30 PM</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-6 text-center">
+                {% if user.type == "Rider" %}
+                    <p class="ctext" title="Driver Name">MD. Kalam Hosen</p>                    
+                {% elif user.type == "Driver" %}
+                    <p class="ctext" title="Rider Name">MD. Rafiq Khan</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                {% if user.type == "Rider" %}
+                    <p class="ctext" title="NID">7810689615</p>                    
+                {% elif user.type == "Driver" %}
+                    <p class="ctext" title="NID">4850163598</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Rating">4.6/5</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Type">Reserve</p>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}
+{% block title %}History - Rider{% endblock title %}

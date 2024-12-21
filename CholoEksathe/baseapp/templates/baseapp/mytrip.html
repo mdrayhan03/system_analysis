@@ -1,0 +1,81 @@
+{% extends "baseapp/baseapp.html" %}
+{% load static %}
+{% block main_content %}
+    <div class="card m-3 p-3 cdiv">
+        <div class="row">
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="From">Jamuna Future Park</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="To">Airport</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Date">Today</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Time">Now</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-6 text-center">
+                {% if user.type == "Rider" %}
+                    <p class="ctext" title="Driver Name">Mofazzel Hosen</p>                    
+                {% elif user.type == "Driver" %}
+                    <p class="ctext" title="Rider Name">Eqbal Kader</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                {% if user.type == "Rider" %}
+                    <p class="ctext" title="NID">7856165590</p>                    
+                {% elif user.type == "Driver" %}
+                    <p class="ctext" title="NID">18578103535</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Rating">Ride</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Type">Pending</p>
+            </div>
+        </div>
+    </div>
+    <div class="card m-3 p-3 cdiv">
+        <div class="row">
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="From">Independent University Bangladesh</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="To">Mirpur-2</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Date">29/12/2024</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Time">11:30 PM</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-6 text-center">
+                {% if user.type == "Rider" %}
+                    <p class="ctext" title="Driver Name">MD. Kalam Hosen</p>                    
+                {% elif user.type == "Driver" %}
+                    <p class="ctext" title="Rider Name">MD. Rafiq Khan</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                {% if user.type == "Rider" %}
+                    <p class="ctext" title="NID">7810689615</p>                    
+                {% elif user.type == "Driver" %}
+                    <p class="ctext" title="NID">4850163598</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Rating">Reserve</p>
+            </div>
+            <div class="col-lg-3 col-6 text-center">
+                <p class="ctext" title="Type">Pending</p>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}
+{% block title %}My Trip{% endblock title %}

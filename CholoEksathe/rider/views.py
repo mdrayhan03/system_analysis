@@ -2,18 +2,30 @@ from django.shortcuts import render
 import requests
 
 # Create your views here.
-def dashboard(request) :
-    return render(request, "rider/dashboard.html")
-
-def map(request) :
-    return render(request, "rider/map.html")
-
 def ride(request) :
-    place = "Dhaka"
-    coordinates = get_coordinates(place)
-    print(f"Coordinates of {place}: {coordinates}")
+    fr = "Independent University Bangladesh"
+    to = "Mirpur-2"
+    frcoordinates = list(get_coordinates(fr))
+    tocoordinates = list(get_coordinates(to))
 
-    return render(request, "rider/ride.html")
+    coordinates = {
+        "from" : frcoordinates,
+        "to" : tocoordinates
+    }    
+    return render(request, "rider/ride.html", {"coordinates" : coordinates})
+
+def shareride(request) :
+    fr = "Independent University Bangladesh"
+    to = "Mirpur-2"
+    frcoordinates = list(get_coordinates(fr))
+    tocoordinates = list(get_coordinates(to))
+
+    coordinates = {
+        "from" : frcoordinates,
+        "to" : tocoordinates
+    }  
+
+    return render(request, "rider/shareride.html", {"coordinates" : coordinates})
 
 def get_coordinates(place_name):
     api_key = 'f20ec4be93844a14b1b9f9c7db770cb3'
@@ -30,14 +42,20 @@ def get_coordinates(place_name):
     else:
         return f"Error: {response.status_code}"
 
+def reserve(request) :
+    fr = "Independent University Bangladesh"
+    to = "Mirpur-2"
+    frcoordinates = list(get_coordinates(fr))
+    tocoordinates = list(get_coordinates(to))
+
+    coordinates = {
+        "from" : frcoordinates,
+        "to" : tocoordinates
+    }
+    return render(request, "rider/reserve.html", {"coordinates" : coordinates})
+
 def community(request) :
     return render(request, "rider/community.html")
 
 def message(request) :
     return render(request, "rider/message.html")
-
-def profile(request) :
-    return render(request, "rider/profile.html")
-
-def changeProfile(request) :
-    return render(request, "rider/changeProfile.html")

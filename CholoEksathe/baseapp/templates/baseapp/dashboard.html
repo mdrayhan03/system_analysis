@@ -1,0 +1,180 @@
+{% extends "baseapp/baseapp.html" %}
+{% load static %}
+{% block main_content %}
+
+<div class="card m-3 p-3 cdiv">
+    <div class="row">
+      <div class="col-lg-8 col-12">
+        <h3 class="f-1 ctext">{{user.first_name}} {{user.last_name}}</h3>
+        <p class="ctext">Email: {{user.email}}</p>
+        <p class="ctext">Phone No: {{user.pN}}</p>
+        <p class="ctext">User Type: {{user.type}}</p>
+      </div>
+      <div class="col-4 text-end d-md-inline d-none">
+        <img class="dashboardImg img-fluid img-thumbnail" 
+        {% if user.type == "Rider" %}
+          src="{% static "img/profile.jpg" %}"
+        {% elif user.type == "Driver" %}
+        src="{% static "img/driver.jpeg" %}"
+        {% endif %}
+        alt="">
+      </div>
+    </div>
+</div>
+
+<div class="card m-3 p-3 cdiv ">
+  <h3 class="f-4 f-md-1 ctext">Today's ride</h3>
+</div>
+
+<div class="row m-3">
+  <div class="col-12 col-md-3 mb-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">04</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">01</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Ride</h3>
+    </div>
+  </div> 
+  <div class="col-12 col-md-3 mb-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">01</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">00</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Share Ride</h3>
+    </div>
+  </div> 
+  <div class="col-12 col-md-3 mb-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">12.3km</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">4.2km</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Distance</h3>
+    </div>
+  </div>
+  <div class="col-12 col-md-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">2,048tk</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">572tk</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Payment</h3>
+    </div>
+  </div> 
+</div>
+
+<div class="card m-3 p-3 cdiv ">
+  <h3 class="f-4 f-md-1 ctext">Lifetime ride</h3>
+</div>
+
+<div class="row m-3">
+  <div class="col-12 col-md-3 mb-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">124</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">112</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Ride</h3>
+    </div>
+  </div> 
+  <div class="col-12 col-md-3 mb-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">31</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">03</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Share Ride</h3>
+    </div>
+  </div> 
+  <div class="col-12 col-md-3 mb-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">51295.7km</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">379.2km</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Distance</h3>
+    </div>
+  </div>
+  <div class="col-12 col-md-3">    
+    <div class="p-3 rounded text-center card cdiv">
+      {% if user.type == "Driver" %}
+        <h4 class="f-4 f-md-2 ctext">12,412,851tk</h4>
+      {% elif user.type == "Rider" %}
+        <h4 class="f-4 f-md-2 ctext">9,245tk</h4>
+      {% endif %}
+      <h3 class="f-4 f-md-3 ctext">Payment</h3>
+    </div>
+  </div> 
+</div>
+
+<div class="card m-3 cdiv">
+  <div id="chart"></div>
+</div>
+
+<!-- Apex Chart -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+  var options = {
+    series: [{
+      name: 'Payment',
+      data: [31, 40, 28, 51, 42, 109, 100, 11, 32, 45, 32, 34]
+    }, {
+      name: 'Distance',
+      data: [11, 32, 45, 32, 34, 52, 41, 31, 40, 28, 51, 42]
+    }],
+    chart: {
+      height: 350,
+      type: 'area',
+      background: '#121212', // Dark background color for the chart
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    xaxis: {
+      type: 'category',
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      labels: {
+        style: {
+          colors: ['#ffffff'], // White color for x-axis labels
+        },
+      },
+    },
+    yaxis: {
+      labels: {
+        style: {
+          colors: ['#ffffff'], // White color for y-axis labels
+        },
+      },
+    },
+    grid: {
+      borderColor: '#555', // Slightly lighter grid lines
+    },
+    tooltip: {
+      theme: 'dark', // Dark theme for the tooltip
+    },
+    theme: {
+      mode: 'dark', // Enable dark theme
+      palette: 'palette1', // Choose from predefined color palettes, you can also use 'palette2' for a different look
+    },
+  };
+  
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+  
+</script>
+
+{% endblock main_content %}
+{% block title %}Dashboard{% endblock title %}

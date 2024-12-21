@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 
 EXTERNAL_APPS = [
     'baseapp.apps.BaseappConfig',
-    'rider.apps.RiderConfig'
+    'rider.apps.RiderConfig',
+    'driver.apps.DriverConfig'
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
