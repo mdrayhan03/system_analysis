@@ -66,6 +66,9 @@
         color: #11101D;
         background-color: cyan;
       }
+      .custom {
+        display : none;
+      }
       /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
         body {align-items: start}
@@ -135,11 +138,11 @@
                     <label class="ctext" for="">User Type</label><br>
                     <div class="container d-flex justify-content-around">
                         <label class="ctext">
-                            <input type="radio" name="type" value="Rider" >
+                            <input type="radio" name="type" value="Rider" onchange="riderfunction()">
                             Rider
                         </label>
                         <label class="ctext">
-                            <input type="radio" name="type" value="Driver" >
+                            <input type="radio" name="type" value="Driver" onchange="driverfunction()">
                             Driver
                         </label>
                     </div>
@@ -178,9 +181,23 @@
                     <label class="ctext" for="">NID No</label><br>
                     <input class="cinput" placeholder="NID No" type="text">
                 </div>
-                <div class=" col-lg-4 col-12 mb-2">
+                <div class="custom col-lg-4 col-12 mb-2">
                     <label class="ctext" for="">Licence No</label><br>
                     <input class="cinput" placeholder="Licence No" type="text">
+                </div>
+                <div class="custom col-lg-4 col-12 mb-2">
+                    <label class="ctext" for="">Vehicle No</label><br>
+                    <input class="cinput" placeholder="Vehicle No" type="text">
+                </div>
+                <div class="custom col-lg-4 col-12 mb-2">
+                    <label class="ctext" for="">Vehicle Type</label><br>
+                    <select class="cinput">
+                        <option style="background-color: black;" selected>Select Vehicle</option>
+                        <option style="background-color: black;">Bike</option>
+                        <option style="background-color: black;">CNG</option>
+                        <option style="background-color: black;">Car</option>
+                        <option style="background-color: black;">Hiace</option>
+                    </select>
                 </div>
                 <div class=" col-lg-4 col-12 mb-2">
                     <label class="ctext" for="">Date of Birth</label><br>
@@ -201,4 +218,18 @@
         </form>
     </main>
 </body>
+<script>
+    const ele = document.querySelectorAll('.custom');
+    function riderfunction() {
+        ele.forEach(function(item) {
+            item.style.display = "none";
+        });
+    }
+    
+    function driverfunction() {
+        ele.forEach(function(item) {
+            item.style.display = "block";
+        });
+    }
+</script>
 </html>

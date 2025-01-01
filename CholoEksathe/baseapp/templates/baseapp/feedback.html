@@ -1,0 +1,120 @@
+{% extends "baseapp/baseapp.html" %}
+{% load static %}
+{% block main_content %}
+
+<style>
+    .butn {
+        outline: 0;
+        border: 0;
+        color: cyan;
+        background: transparent;
+        transition: 0.5s ease-in-out;
+    }
+    .report-content, .review-content {
+        max-height: 0 ;
+        overflow: hidden;
+        transition: 0.5s ease-in-out;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 10px;
+    }
+            
+    .rating {
+        display: flex;
+        direction: row-reverse;
+        justify-content: center;
+    }
+    
+    .rating input {
+        display: none;
+    }
+    
+    .rating label {
+        font-size: 2rem;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+    }
+    
+    .rating input:checked ~ label {
+        color: gold;
+    }
+    
+    .rating input:hover ~ label {
+        color: gold;
+    }
+</style>
+
+<div class="card m-3 p-3 cdiv">
+    <h4 class="ctext">Review</h4>
+    <div class="review-content">
+        <form action="#">
+            <input class="cinput" type="text" placeholder="write your name here">
+            <input class="cinput" type="email" placeholder="write your email here">
+            <label class="ctext">Rating</label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5" title="5 stars">★</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4" title="4 stars">★</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3" title="3 stars">★</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2" title="2 stars">★</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1" title="1 star">★</label>
+            </div>
+            <label>Comment</label>
+            <textarea class="cinput" rows='4' placeholder="write your comment here"></textarea>
+            <button class="cbutton m-2 px-3">Review</button>
+        </form>
+    </div>
+    <button class="butn reviewbtn" onclick="reviewFunction()"><i class="fa-solid fa-angles-down"></i></button>
+</div>
+
+<div class="card m-3 p-3 cdiv">
+    <h4 class="ctext">Report</h4>
+    <div class="report-content">
+        <input class="cinput mb-3" type="text" placeholder="subject">
+        <textarea class="cinput" rows="4" placeholder="write report here..."></textarea>
+        <button class="cbutton m-2 px-3">Report</button>
+    </div>
+    <button class="butn reportbtn" onclick="reportFunction()"><i class="fa-solid fa-angles-down"></i></button>
+</div>
+
+<script>
+    var report = false;
+    function reportFunction() {
+        if (report === false) {
+            document.getElementsByClassName("report-content")[0].style.maxHeight = "500px" ;
+            document.getElementsByClassName("reportbtn")[0].style.transform = "rotate(180deg)" ;
+            report = true ;
+        }
+        else if (report === true) {
+            document.getElementsByClassName("report-content")[0].style.maxHeight = "0px" ;
+            document.getElementsByClassName("reportbtn")[0].style.transform = "rotate(0deg)" ;
+            report = false ;
+        }
+    }
+
+    var review = false;
+    function reviewFunction() {
+        if (review === false) {
+            document.getElementsByClassName("review-content")[0].style.maxHeight = "500px" ;
+            document.getElementsByClassName("reviewbtn")[0].style.transform = "rotate(180deg)" ;
+            review = true ;
+        }
+        else if (review === true) {
+            document.getElementsByClassName("review-content")[0].style.maxHeight = "0px" ;
+            document.getElementsByClassName("reviewbtn")[0].style.transform = "rotate(0deg)" ;
+            review = false ;
+        }
+    }
+</script>
+
+{% endblock main_content %}
+{% block title %}Feedback{% endblock title %}

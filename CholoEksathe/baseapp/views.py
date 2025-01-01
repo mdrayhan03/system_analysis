@@ -45,6 +45,12 @@ def history(request) :
     user = request.session["user"]
     return render(request, "baseapp/history.html", {"user" : user})
 
+def feedback(request) :
+    return render(request, "baseapp/feedback.html")
+
+def emergency(request) :
+    return render(request, "baseapp/emergency.html")
+
 def profile(request) :
     user = request.session["user"]
     return render(request, "baseapp/profile.html", {"user" : user})
