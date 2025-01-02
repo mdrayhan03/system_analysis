@@ -18,7 +18,7 @@
   <body>
     <div class="sidebar">
       <div class="logo-details">
-        <<i class="fa-solid fa-registered icon"></i>
+        <i class="fa-solid fa-registered icon"></i>
         <div class="logo_name">CholoEksathe</div>
         <i class="bx bx-menu" id="btn"></i>
       </div>
@@ -115,10 +115,14 @@
         </li>
         <li class="profile">
           <div class="profile-details">
-            <img src=" {% static "img/profile.jpg" %}" alt="profileImg" />
+            {% if request.session.user.type == "Rider" %}
+              <img src=" {% static "img/profile.jpg" %}" alt="profileImg" />
+            {% elif request.session.user.type == "Driver" %}  
+              <img src=" {% static "img/driver.jpeg" %}" alt="profileImg" />
+            {% endif %}
             <div class="name_job">
-              <div class="name">Prem Shahi</div>
-              <div class="job">Web designer</div>
+              <div class="name">{{request.session.user.first_name}} {{request.session.user.last_name}}</div>
+              <div class="job">{{request.session.user.type}}</div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="window.location.href='{% url "baseapp:login" %}'"></i>
@@ -130,7 +134,7 @@
       <header>
         <div class="logo">
           <i class="fa-solid fa-registered" style="font-size:20px;"></i>
-          <div class="logo_name">CholoEksathe</div>
+          <div class="clogo_name">CholoEksathe</div>
         </div>
         <div class="setting-part">
           <i class="bx bx-user" onclick="window.location.href='{% url "baseapp:profile" %}'"></i>

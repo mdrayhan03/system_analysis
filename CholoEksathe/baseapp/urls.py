@@ -11,6 +11,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name="dashboard"),
     path('map/', views.map, name="map"),
     path('mytrip/', views.mytrip, name="mytrip"),
+    path('trip/', views.trip, name="trip"),
     path('history/', views.history, name="history"),
     path('feedback/', views.feedback, name="feedback"),
     path('emergency/', views.emergency, name="emergency"),

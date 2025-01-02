@@ -1,0 +1,101 @@
+{% extends "baseapp/baseapp.html" %}
+{% load static %}
+{% block main_content %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<style>
+    #map { width: 100%; height: 500px; }
+</style>
+
+<div class="card m-3 p-3 cdiv">
+    <h1 class="fs-4 ctext">Select your route</h1>
+    <div id="map"></div>
+</div>
+
+<div class="card m-3 p-3 cdiv">
+    <h1 class="fs-4 ctext">Request for Ride</h1>
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <p class="ctext">From</p>
+            <input class="w-100 cinput" type="text" value="Independent University Bangladesh" placeholder="From" readonly>
+          </div>
+          <div class="col-lg-6 col-12">
+            <p class="ctext">To</p>
+            <input class="w-100 cinput" type="text" value="Mirpur-2" placeholder="Destination">
+          </div>
+    </div>
+    {% if request.session.user.type == "Rider" %}
+        <button class="mt-3 cbutton" onclick="confirm()">Change Destination</button>
+    {% endif %}
+    </div>
+
+    <div class="card m-3 p-3 cdiv ">
+        <h2 class="fs-4 ctext">Calculated Fear : 450tk</h2>
+        {% if request.session.user.type == "Rider" %}
+            <button class="mt-3 cbutton" onclick="window.location.href = '{% url "rider:payment" %}'">Payment</button>
+        {% endif %}
+    </div>
+    <div class="card m-3 p-3 cdiv ">
+        {% if request.session.user.type == "Rider" %}
+            <h2 class="fs-4 ctext">Driver Details</h2>
+        {% elif request.session.user.type == "Driver" %}
+            <h2 class="fs-4 ctext">Rider Details</h2>
+        {% endif %}
+    </div>
+
+    <div class="card m-3 p-3 cdiv ">        
+        <div class="row">
+            {% if request.session.user.type == "Rider" %}
+                <div class="col-4 col-lg-1">
+                    <img class="driverImg img-fluid img-thumbnail" src="{% static "img/driver.jpeg" %}" alt="">
+                </div>
+                <div class="col">
+                    <p class="ctext">MD. Kalam Hosen</p>
+                    <p class="ctext">01641058157</p>
+                </div>
+                <div class="col">
+                    <p class="ctext">DK21561385L57560</p>
+                    <p class="ctext">4.6/5</p>
+                </div>
+            {% elif request.session.user.type == "Driver" %}
+                <div class="col-4 col-lg-1">
+                    <img class="driverImg img-fluid img-thumbnail" src="{% static "img/profile.jpg" %}" alt="">
+                </div>
+                <div class="col">
+                    <p class="ctext">MD. Rafiq Khan</p>
+                    <p class="ctext">01312961737</p>
+                </div>
+                <div class="col">
+                    <p class="ctext">6945889710</p>
+                    <p class="ctext">4.6/5</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    // Initialize the map (initially centered at some default location)
+    var map = L.map('map').setView([23.8103, 90.4125], 13); // Default: London coordinates
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    let lst = [[{{coordinates.from}}, "Independent University Bangladesh", "Start from here"], [{{coordinates.to}}, "Mirpur-2", "End will here"], [[23.8203389,90.417814], "Now", "You are here"]] ;
+    for (var i = 0 ; i < lst.length; i++) {
+        var pinCoordinates = [lst[i][0][0], lst[i][0][1]];
+        var marker = L.marker(pinCoordinates).addTo(map);
+        marker.bindPopup(`<b>${lst[i][1]}</b><br>${lst[i][2]}!`);
+    }
+
+    function confirm() {
+        var ele = document.getElementsByClassName("") ;
+        for (var i = 0; i < ele.length; i++) {
+            ele[i].style.display = "block";
+        }
+    }
+</script>
+
+{% endblock main_content %}
+{% block title %}Trip{% endblock title %}

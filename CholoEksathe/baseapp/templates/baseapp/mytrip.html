@@ -1,7 +1,7 @@
 {% extends "baseapp/baseapp.html" %}
 {% load static %}
 {% block main_content %}
-    <div class="card m-3 p-3 cdiv">
+    <div class="card m-3 p-3 cdiv" onclick="window.location.href='{% url "baseapp:trip" %}'">
         <div class="row">
             <div class="col-lg-3 col-6 text-center">
                 <p class="ctext" title="From">Jamuna Future Park</p>
@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="card m-3 p-3 cdiv">
+    <div class="card m-3 p-3 cdiv" onclick="window.location.href='{% url "baseapp:trip" %}'">
         <div class="row">
             <div class="col-lg-3 col-6 text-center">
                 <p class="ctext" title="From">Independent University Bangladesh</p>

@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <style>
     #map { width: 100%; height: 500px; }
+    .customize {
+        display: none ;
+        transition: height 0.5 ease-in-out;
+    }
 </style>
 
 <div class="card m-3 p-3 cdiv">
@@ -24,17 +28,17 @@
             <input class="w-100 cinput" type="text" value="Mirpur-2" placeholder="Destination">
           </div>
     </div>
-    <button class="mt-3 cbutton">Request Ride</button>
+    <button class="mt-3 cbutton" onclick="confirm()">Request Ride</button>
     </div>
 
-    <div class="card m-3 p-3 cdiv">
+    <div class="card m-3 p-3 cdiv customize">
         <h2 class="fs-4 ctext">Calculated Fear : 450tk</h2>
     </div>
-    <div class="card m-3 p-3 cdiv">
+    <div class="card m-3 p-3 cdiv customize">
         <h2 class="fs-4 ctext">Available Drivers</h2>
     </div>
 
-    <div class="card m-3 p-3 cdiv">
+    <div class="card m-3 p-3 cdiv customize">
         <div class="row">
             <div class="col-4 col-lg-1">
                 <img class="driverImg img-fluid img-thumbnail" src="{% static "img/driver.jpeg" %}" alt="">
@@ -64,6 +68,13 @@
         var pinCoordinates = [lst[i][0][0], lst[i][0][1]];
         var marker = L.marker(pinCoordinates).addTo(map);
         marker.bindPopup(`<b>${lst[i][1]}</b><br>This is ${lst[i][1]}!`);
+    }
+
+    function confirm() {
+        var ele = document.getElementsByClassName("customize") ;
+        for (var i = 0; i < ele.length; i++) {
+            ele[i].style.display = "block";
+        }
     }
 </script>
 

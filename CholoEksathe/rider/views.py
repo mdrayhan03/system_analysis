@@ -59,3 +59,6 @@ def community(request) :
 
 def message(request) :
     return render(request, "rider/message.html")
+
+def payment(request) :
+    return render(request, "rider/payment.html")

@@ -16,8 +16,10 @@ closeBtn.addEventListener("click", ()=>{
 function menuBtnChange() {
  if(sidebar.classList.contains("open")){
    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   document.getElementsByClassName("clogo_name")[0].style.display = "none" ;
  }else {
    closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   document.getElementsByClassName("clogo_name")[0].style.display = "block" ;
  }
 }
 
