@@ -1,0 +1,60 @@
+{% extends "baseapp/baseapp.html" %}
+{% load static %}
+{% block main_content %}
+<style>
+    .cimg {
+        width: 50px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+    }
+    .customize {
+        display: none;
+    }
+</style>
+
+<div class="m-3 p-3 cdiv d-flex justify-content-end gap-3">
+    <button class="cbutton px-3" onclick="friendfunction()">Add new friend</button>
+</div>
+
+<div class="card m-3 p-3 cdiv customize">
+    <p class="ctext">Rider email</p>
+    <input class="cinput" type="text">
+    <button class="cbutton mt-2 w-100">Add Friend</button>
+</div>
+
+<div class="card m-3 p-3 cdiv">
+    <div class="row">            
+        <div class="col">
+            <img class="cimg img-fluid img-thumbnail" src="{% static "img/profile.jpg" %}" alt="">
+            <span class="ctext mx-3">Abu Salam Mollah</span>
+        </div>
+    </div>
+</div>
+
+<div class="card m-3 p-3 cdiv">
+    <div class="row">            
+        <div class="col">
+            <img class="cimg img-fluid img-thumbnail" src="{% static "img/profile.jpg" %}" alt="">
+            <span class="ctext mx-3">Rahul Bepari</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    var flag = false ;
+    function friendfunction() {
+        var ele = document.getElementsByClassName("customize")[0]
+        console.log() ;
+        if (flag === false) {            
+            ele.style.display = "block" ;
+            flag = true ;
+        }
+        else if (flag === true) {
+            ele.style.display = "none" ;
+            flag = false ;
+        }
+    }
+</script>
+
+{% endblock main_content %}
+{% block title %}Community{% endblock title %}

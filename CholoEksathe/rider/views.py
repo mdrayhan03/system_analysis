@@ -62,3 +62,6 @@ def message(request) :
 
 def payment(request) :
     return render(request, "rider/payment.html")
+
+def friendlist(request) :
+    return render(request, "rider/friendlist.html")

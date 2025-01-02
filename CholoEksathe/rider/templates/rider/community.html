@@ -2,6 +2,7 @@
 {% load static %}
 {% block main_content %}
     <div class="m-3 p-3 cdiv d-flex justify-content-end gap-3">
+        <button class="cbutton px-3" onclick="window.location.href = '{% url "rider:friendlist" %}'">Friend List</button>
         <button class="cbutton px-3">Join</button>
         <button class="cbutton px-3">Create</button>
     </div>

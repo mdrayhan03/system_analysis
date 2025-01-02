@@ -12,4 +12,5 @@ urlpatterns = [
     path('community/', views.community, name="community"),
     path('message/', views.message, name="message"),
     path('payment/', views.payment, name="payment"),
+    path('friendlist/', views.friendlist, name="friendlist"),
 ]
