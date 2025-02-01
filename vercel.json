@@ -5,17 +5,12 @@
             "src": "choloeksathe/wsgi.py",
             "use": "@vercel/python",
             "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
-        },
-        {
-            "src": "build_file.sh",
-            "use": "@vercel/static-build",
-            "config": { "distDir": "dist" }
         }
     ],
     "routes": [
         {
             "src": "/static/(.*)",
-            "dest": "/dist/$1"
+            "dest": "/assets/$1"
         },
         {
             "src": "/(.*)",
