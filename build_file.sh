@@ -1,13 +1,12 @@
 #!/bin/bash
-echo " BUILD START "
+echo "BUILD START"
+
+# Install dependencies
 python3.12 -m pip install --upgrade pip
 python3.12 -m pip install -r requirements.txt
 
-# Collect static files into 'staticfiles'
-python3.12 manage.py collectstatic --noinput --clear
-
-# Create 'dist' directory and move static files there
+# Move assets to dist
 mkdir -p dist
-mv staticfiles/* dist/
+cp -r assets/* dist/
 
-echo " BUILD END "
+echo "BUILD END"
